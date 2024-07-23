@@ -46,16 +46,24 @@ def switch_event():
         stabut.configure(fg_color='#1F6AA5', hover_color='#144870')
         actbut.configure(fg_color='#1F6AA5', hover_color='#144870')
         start_button.configure(fg_color='#1F6AA5', hover_color='#144870')
-        if sta: stabut.configure(fg_color='green', hover_color='dark green')
-        if act: actbut.configure(fg_color='green', hover_color='dark green')
+        try:
+            if sta: stabut.configure(fg_color='green', hover_color='dark green')
+        except: pass
+        try: 
+            if act: actbut.configure(fg_color='green', hover_color='dark green')
+        except: pass
         m.update_idletasks()
     if switch_var.get() == "on":
         m.update_idletasks()
-        stabut.configure(fg_color='firebrick1', hover_color='firebrick3')
-        actbut.configure(fg_color='firebrick1', hover_color='firebrick3')
-        start_button.configure(fg_color='firebrick1', hover_color='firebrick3')
-        if sta: stabut.configure(fg_color='green', hover_color='dark green')
-        if act: actbut.configure(fg_color='green', hover_color='dark green')
+        stabut.configure(fg_color='SpringGreen3', hover_color='SpringGreen4')
+        actbut.configure(fg_color='SpringGreen3', hover_color='SpringGreen4')
+        start_button.configure(fg_color='SeaGreen3', hover_color='SeaGreen4')
+        try:
+            if sta: stabut.configure(fg_color='green', hover_color='dark green')
+        except: pass
+        try:
+            if act: actbut.configure(fg_color='green', hover_color='dark green')
+        except: pass
         m.update_idletasks()
 
 ctk.set_appearance_mode("System")
@@ -76,7 +84,7 @@ actions = ''; statements = ''
 actbut = ctk.CTkButton(frame, text="Select Actions", command=selact)
 stabut = ctk.CTkButton(frame, text="Select Statements", command=selsta)
 button = ctk.CTkButton(frame, text="End Process", command=qbutton, fg_color='gray', hover_color='dim gray')
-switch = ctk.CTkSwitch(frame, text="", command=switch_event, variable=switch_var, offvalue="off", onvalue="on")
+switch = ctk.CTkSwitch(frame, text="", command=switch_event, variable=switch_var, offvalue="off", onvalue="on", progress_color='SeaGreen3')
 
 # Progress bar
 progress = ctk.CTkProgressBar(frame, width=180, progress_color='SeaGreen1')
